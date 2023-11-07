@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
   return (
     <>
       <NavBar/>
-      <h1>Holaa mi página</h1>
+      <ItemListContainer title="Librería El Mundo"/>
     </>
   )
 }
