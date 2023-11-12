@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import bag from "/src/assets/bag.svg"
+import './CartWidget.css'
 
 const CartWidget = () => {
   const [cantCarrito, setCantCarrito] = useState(0)

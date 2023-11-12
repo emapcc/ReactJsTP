@@ -1,6 +1,7 @@
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget'
 import logo from "/src/assets/logo-libreria.jpeg"
+import './NavBar.css'
 
 const NavBar = () => {
   return (

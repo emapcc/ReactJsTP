@@ -1,0 +1,21 @@
+.logo {
+    height: 50px;
+}
+
+.navbar {
+    background-color: rgb(136, 108, 72);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.nav-ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+}
+
+.nav-ul li {
+    margin: 0 10px;
+}
