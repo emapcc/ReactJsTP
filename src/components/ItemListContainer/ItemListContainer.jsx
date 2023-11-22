@@ -22,7 +22,7 @@ const ItemListContainer = ({title}) => {
   return (
     <>
         <h1>{title}</h1>
-        {loading ? <BeatLoader color="#403232" size={50} /> :
+        {loading ? <div className='loading'><BeatLoader color="#403232" size={50} /></div> :
           <ItemList libros={productos} />
         }
     </>
