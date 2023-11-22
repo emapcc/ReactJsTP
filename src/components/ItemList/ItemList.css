@@ -1,0 +1,7 @@
+.productos-grid-container {
+    margin: 0 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1.4fr);
+    column-gap: 15px;
+    justify-items: center;
+}

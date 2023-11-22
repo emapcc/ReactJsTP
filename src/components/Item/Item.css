@@ -1,0 +1,23 @@
+article {
+    background-color: rgb(122, 113, 82);
+    border-radius: 20px;
+    width: 300px;
+    box-shadow: 10px 13px 8px 5px rgba(0, 0, 0, 0.2);
+}
+
+article img {
+    height: 270px;
+    margin: 15px 0 0 60px;
+}
+
+article button {
+    border: solid 2px black;
+    background-color: antiquewhite;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+article button:hover {
+    background-color: rgb(187, 175, 160);
+    cursor: pointer;
+}
