@@ -3,5 +3,6 @@
     display: grid;
     grid-template-columns: repeat(4, 1.4fr);
     column-gap: 15px;
+    row-gap: 25px;
     justify-items: center;
 }
