@@ -1,0 +1,22 @@
+.mas-info {
+    height: 500px;
+    width: 500px;
+    background-color: burlywood;
+    display: flex;
+    margin: 40px 465px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.mas-info div {
+    margin-left: 15px;
+}
+
+.mas-info div img {
+    height: 350px;
+    margin-top: 15px;
+}
+
+.mas-info div .agregar-carrito {
+    margin-left: 60px;
+}

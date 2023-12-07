@@ -21,3 +21,8 @@ article button:hover {
     background-color: rgb(187, 175, 160);
     cursor: pointer;
 }
+
+article button a {
+    text-decoration: none;
+    color: black;
+}

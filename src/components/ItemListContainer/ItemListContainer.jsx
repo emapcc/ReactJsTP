@@ -1,23 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList'
-import { recuperarProductos } from '../../data/asyncLibros'
+import { recuperarProductos, recuperarProductosGenero } from '../../data/asyncLibros'
 import BeatLoader from 'react-spinners/BeatLoader'
+import { useParams } from 'react-router-dom'
 
 const ItemListContainer = ({title}) => {
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
 
+  const {generoId} = useParams()
+  console.log(generoId);
+  console.log(recuperarProductosGenero(generoId));
+
   useEffect(() => {
-    recuperarProductos()
-      .then(response => {
-        setProductos(response)
-      })
-      .catch(error => {
-        console.error(error);
-      })
-      .finally(() => setLoading(false))
-  }, [])
+    if(generoId) {
+      recuperarProductosGenero(generoId)
+        .then(response => setProductos(response))
+        .catch(error => {
+          console.error(error);
+        })
+        .finally(() => setLoading(false))
+    } else {
+      recuperarProductos()
+        .then(response => setProductos(response))
+        .catch(error => {
+          console.error(error);
+        })
+        .finally(() => setLoading(false))
+    }
+  }, [generoId])
 
   return (
     <>
