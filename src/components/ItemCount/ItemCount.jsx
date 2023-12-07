@@ -1,8 +1,8 @@
 import React from 'react'
 import useCounter from '../../hooks/useCounter'
 
-const ItemCount = ({valorInicial, stock}) => {
-    const {count, incrementar, decrementar} = useCounter(valorInicial, stock)
+const ItemCount = ({inicial, stock}) => {
+    const {count, incrementar, decrementar} = useCounter(inicial, stock)
 
   return (
     <div>

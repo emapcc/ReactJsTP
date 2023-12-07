@@ -6,6 +6,7 @@ const libros = [
         anio: 1813,
         genero: "a",
         precio: 2000,
+        stock: 5,
         img: "https://images.cdn3.buscalibre.com/fit-in/360x360/46/6b/466b0b47e932561b186c56358acbe55e.jpg"
     },
     {
@@ -75,3 +76,12 @@ export const recuperarProductos = () => {
             }, 2500)
         })
     }
+
+export const recuperarProductosPorId = (id) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const libro = libros.find((libr) => libr.id === parseInt(id))
+            resolve(libro)
+        }, 1000)
+    })
+}

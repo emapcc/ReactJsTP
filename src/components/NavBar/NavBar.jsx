@@ -10,7 +10,7 @@ const NavBar = () => {
       <img className='logo' src={logo} alt="logo" />
       <ul className='nav-ul'>
         <li><Link to='/'>Librería "El Mundo"</Link></li>
-        <li><Link to='/catalogo'>Catálogo</Link></li>
+        <li><Link to='/carrito'>Carrito</Link></li>
       </ul>
       <CartWidget/>
     </nav>
