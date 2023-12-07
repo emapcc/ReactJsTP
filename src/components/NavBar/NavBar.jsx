@@ -14,9 +14,8 @@ const NavBar = () => {
         <li><Link to='/genero/Poema épico'>Poemas épicos</Link></li>
         <li><Link to='/genero/Sátira'>Sátiras</Link></li>
         <li><Link to='/genero/Literatura fantástica'>Literatura fantástica</Link></li>
-        <li><Link to='/carrito'>Carrito</Link></li>
       </ul>
-      <CartWidget/>
+      <Link to='/carrito'><CartWidget/></Link>
     </nav>
   )
 }
