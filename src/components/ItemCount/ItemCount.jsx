@@ -2,7 +2,7 @@ import React from 'react'
 import useCounter from '../../hooks/useCounter'
 import './ItemCount.css'
 
-const ItemCount = ({inicial, stock}) => {
+const ItemCount = ({inicial, stock, onAdd}) => {
     const {count, incrementar, decrementar} = useCounter(inicial, stock)
 
   return (
@@ -10,6 +10,7 @@ const ItemCount = ({inicial, stock}) => {
       <button onClick={decrementar}>-</button>
       <p>{count}</p>
       <button onClick={incrementar}>+</button>
+      <button onClick={() => onAdd(count)} className='agregar-carrito'>Agregar al carrito</button>
     </div>
   )
 }

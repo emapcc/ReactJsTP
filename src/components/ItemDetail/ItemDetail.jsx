@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
+import CartContext from '../../context/CartContext'
 
-const ItemDetail = ({titulo, autor, anio, precio, img, stock}) => {
+const ItemDetail = ({id, titulo, autor, anio, precio, img, stock}) => {
+  const [quantity, setQuantity] = useState(0)
+  const {addItem} = useContext(CartContext)
+
+  const onAdd = (quantity) => {
+    setQuantity(quantity)
+    const newProd = {
+      id, titulo, precio
+    }
+    addItem(newProd, quantity)
+
+  }
+
   return (
     <div className='mas-info'>
       <div>
         <img src={img} alt={titulo} />
         <p>Precio: ${precio}</p>
-        <ItemCount inicial={1} stock={stock} />
-        <button className='agregar-carrito'>Agregar al carrito</button>
+        <ItemCount inicial={1} stock={stock} onAdd={onAdd}/>
       </div>
       <div>
         <h3>{titulo}</h3>
