@@ -4,31 +4,34 @@ import ItemList from '../ItemList/ItemList'
 import { recuperarProductos, recuperarProductosGenero } from '../../data/asyncLibros'
 import BeatLoader from 'react-spinners/BeatLoader'
 import { useParams } from 'react-router-dom'
+import { db } from "../../config/Firebase"
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 const ItemListContainer = ({title}) => {
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
-
   const {generoId} = useParams()
-  console.log(generoId);
-  console.log(recuperarProductosGenero(generoId));
 
   useEffect(() => {
-    if(generoId) {
-      recuperarProductosGenero(generoId)
-        .then(response => setProductos(response))
-        .catch(error => {
-          console.error(error);
-        })
-        .finally(() => setLoading(false))
-    } else {
-      recuperarProductos()
-        .then(response => setProductos(response))
-        .catch(error => {
-          console.error(error);
-        })
-        .finally(() => setLoading(false))
+    const getLibros = async () => {
+      const queryRef = !generoId ? collection(db, 'libros') : 
+      query(collection(db, 'libros'), where('genero', '==', generoId));
+
+      const response = await getDocs(queryRef);
+
+      const data = response.docs.map((libr) => {
+        const newObj = {
+          ...libr.data(),
+          id: libr.id
+        }
+        return newObj
+      })
+      setTimeout(() => {
+        setProductos(data)
+        setLoading(false)
+      }, 1000);
     }
+    getLibros()
   }, [generoId])
 
   return (
