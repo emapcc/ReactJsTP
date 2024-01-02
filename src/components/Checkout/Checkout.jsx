@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import CartContext from '../../context/CartContext'
+import { addDoc, collection } from 'firebase/firestore'
+import { db } from '../../config/Firebase'
 
 const Checkout = () => {
     const [user, setUser] = useState({
@@ -20,16 +22,21 @@ const Checkout = () => {
 
     const getOrder = (event) => {
         event.preventDefault();
-        if(cart.length > 0){
-            if(emailMatch){
-                const order = {
-                    buyer: user,
-                    items: cart,
-                    total: precioTotal()
-                }
-                console.log(order);
+        if(cart.length > 0 && emailMatch){
+            const order = {
+                buyer: user,
+                items: cart,
+                total: precioTotal()
             }
+            const ordersCollection = collection(db, 'orders')
+            addDoc(ordersCollection, order)
+                .then(({id}) => console.log(`Se agregó la orden con id: ${id}`))
+            console.log(order);
             clearCart()
+        } else if(!emailMatch){
+            console.log('Los mails no coinciden');
+        } else if(cart.length === 0){
+            console.log('Agregue productos al carrito');
         }
     }
 
