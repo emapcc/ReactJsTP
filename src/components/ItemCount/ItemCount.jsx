@@ -6,12 +6,14 @@ const ItemCount = ({inicial, stock, onAdd}) => {
     const {count, incrementar, decrementar} = useCounter(inicial, stock)
 
   return (
+    <>
     <div className='count'>
       <button onClick={decrementar}>-</button>
       <p>{count}</p>
       <button onClick={incrementar}>+</button>
-      <button onClick={() => onAdd(count)} className='agregar-carrito'>Agregar al carrito</button>
     </div>
+    <button onClick={() => onAdd(count)} className='agregar-carrito'>Agregar al carrito</button>
+    </>
   )
 }
 

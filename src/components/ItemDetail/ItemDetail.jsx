@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import CartContext from '../../context/CartContext'
+import Swal from 'sweetalert2'
 
 const ItemDetail = ({id, titulo, autor, anio, precio, img, stock}) => {
   const [quantity, setQuantity] = useState(0)
@@ -13,14 +14,29 @@ const ItemDetail = ({id, titulo, autor, anio, precio, img, stock}) => {
       id, titulo, precio
     }
     addItem(newProd, quantity)
-
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "bottom-end",
+      showConfirmButton: false,
+      timer: 3000,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Producto agregado",
+      text: `${quantity} x ${titulo}-- $${precio * quantity}`,
+    });
+    
   }
 
   return (
     <div className='mas-info'>
       <div>
         <img src={img} alt={titulo} />
-        <p>Precio: ${precio}</p>
+        <p className='precio'>Precio: ${precio}</p>
         <ItemCount inicial={1} stock={stock} onAdd={onAdd}/>
       </div>
       <div>

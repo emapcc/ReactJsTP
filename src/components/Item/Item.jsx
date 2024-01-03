@@ -9,7 +9,7 @@ const Item = ({id, titulo, autor, anio, img}) => {
       <img src={img} alt={titulo} />
       <h3>{titulo}</h3>
       <p>Autor/a: {autor}</p>
-      <button><Link to={`/producto/${id}`} >Ver más</Link></button>
+      <Link to={`/producto/${id}`} >Ver más</Link>
     </article>
   )
 }

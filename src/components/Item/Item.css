@@ -1,28 +1,36 @@
 article {
-    background-color: rgb(122, 113, 82);
+    background-color: rgb(195, 172, 145);
     border-radius: 20px;
-    width: 300px;
-    box-shadow: 10px 13px 8px 5px rgba(0, 0, 0, 0.2);
+    width: 240px;
+    height: 450px;
+    box-shadow: 6px 7px 6px 1px rgba(0, 0, 0, 0.2);
 }
 
 article img {
     height: 270px;
-    margin: 15px 0 0 60px;
+    margin: 15px 0 0 30px;
 }
 
-article button {
+article a {
     border: solid 2px black;
     background-color: antiquewhite;
     padding: 10px 15px;
     border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    margin-left: 76px;
+    display: inline-flex;
 }
 
-article button:hover {
+article a:hover {
     background-color: rgb(187, 175, 160);
     cursor: pointer;
 }
 
-article button a {
-    text-decoration: none;
-    color: black;
+article h3 {
+    margin-left: 10px;
+}
+
+article p {
+    margin-left: 10px;
 }

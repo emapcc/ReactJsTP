@@ -13,11 +13,3 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-
-// libros.forEach((libr) => {
-//     addDoc(collection(db, 'libros'), libr)
-//         .then((elem) => {
-//             console.log(`se agrego preducto con id: ${elem.id}`);
-//         })
-//         .catch((err) => console.log(err))
-// })

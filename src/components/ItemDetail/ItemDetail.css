@@ -1,9 +1,9 @@
 .mas-info {
     height: 500px;
     width: 500px;
-    background-color: burlywood;
+    background-color: rgb(195, 172, 145);
     display: flex;
-    margin: 40px 465px;
+    margin: 40px 300px;
     border: 2px solid black;
     border-radius: 5px;
 }
@@ -17,6 +17,7 @@
     margin-top: 15px;
 }
 
-.mas-info div .agregar-carrito {
-    margin-left: 60px;
+.precio {
+    margin-top: 0;
+    margin-bottom: 20px;
 }

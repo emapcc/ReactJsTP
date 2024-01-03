@@ -2,4 +2,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
+}
+
+.count p {
+    margin: 0 15px;
+}
+
+.count button {
+    padding: 0 15px;
+    border: none;
+    background-color: antiquewhite;
+    border-radius: 3px;
+}
+
+.count button:hover {
+    background-color: rgb(244, 216, 180);
+    cursor: pointer;
+}
+
+.agregar-carrito {
+    border: none;
+    margin-left: 55px;
+    background-color: rgb(229, 209, 182);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.agregar-carrito:hover {
+    background-color: rgb(213, 193, 167);
+    cursor: pointer;
 }
