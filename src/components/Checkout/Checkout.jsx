@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import CartContext from '../../context/CartContext'
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../../config/Firebase'
+import Swal from 'sweetalert2'
 
 const Checkout = () => {
     const [user, setUser] = useState({
@@ -11,6 +12,7 @@ const Checkout = () => {
         repetirEmail: ``
     })
     const [emailMatch, setEmailMatch] = useState(null)
+    const [validNumber, setValidNumber] = useState(null)
     const {cart, clearCart, precioTotal} = useContext(CartContext)
 
     const updateUser = (event) => {
@@ -22,7 +24,7 @@ const Checkout = () => {
 
     const getOrder = (event) => {
         event.preventDefault();
-        if(cart.length > 0 && emailMatch){
+        if(cart.length > 0 && emailMatch && validNumber){
             const order = {
                 buyer: user,
                 items: cart,
@@ -30,13 +32,65 @@ const Checkout = () => {
             }
             const ordersCollection = collection(db, 'orders')
             addDoc(ordersCollection, order)
-                .then(({id}) => console.log(`Se agregó la orden con id: ${id}`))
-            console.log(order);
+                .then(({id}) => {
+                    Swal.fire({
+                        title: "Compra realizada",
+                        text: `Su id de compra es #${id}`,
+                        icon: "success"
+                    });
+                })
             clearCart()
         } else if(!emailMatch){
-            console.log('Los mails no coinciden');
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'bottom-start',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            
+            Toast.fire({
+                icon: 'error',
+                title: 'Los mails no coinciden'
+            })
         } else if(cart.length === 0){
-            console.log('Agregue productos al carrito');
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'bottom-start',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            
+            Toast.fire({
+                icon: 'warning',
+                title: 'Debes agregar productos al carrito'
+            })
+        } else if(!validNumber){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'bottom-start',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            
+            Toast.fire({
+                icon: 'error',
+                title: 'Número de teléfono inválido'
+            })
         }
     }
 
@@ -47,6 +101,14 @@ const Checkout = () => {
     useEffect(() => {
         validateEmail();
     }, [user.email, user.repetirEmail]);
+
+    const validateNumber = () => {
+        setValidNumber(user.telefono.length > 9 && user.telefono > 0)
+    }
+
+    useEffect(() => {
+        validateNumber();
+    }, [user.telefono]);
 
   return (
     <>

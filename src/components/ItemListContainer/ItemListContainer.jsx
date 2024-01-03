@@ -26,8 +26,8 @@ const ItemListContainer = ({title}) => {
         }
         return newObj
       })
+      setProductos(data)
       setTimeout(() => {
-        setProductos(data)
         setLoading(false)
       }, 1000);
     }
