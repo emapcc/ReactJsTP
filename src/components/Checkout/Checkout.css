@@ -1,0 +1,29 @@
+form {
+    margin: 0 260px;
+    padding: 15px;
+    background-color: rgb(223, 205, 183);
+    display: grid;
+    justify-content: center;
+    row-gap: 27px;
+}
+
+form div {
+    display: flex;
+    justify-content: space-between;
+}
+
+form div input {
+    border: none;
+    border-bottom: 1px solid rgb(195, 172, 145);
+    background-color: rgb(223, 205, 183);
+    margin-left: 10px;
+}
+
+form button {
+    color: white;
+    background-color: rgb(195, 172, 145);
+    padding: 7px 20px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+}

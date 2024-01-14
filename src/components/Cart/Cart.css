@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@100;200&family=Raleway:wght@100&display=swap');
+
+button {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .cart-list {
     display: grid;
     grid-template-columns: 100%;
@@ -17,6 +23,8 @@
     border: none;
     background-color: rgb(229, 209, 182);
     padding: 3px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .cart-list li button:hover {
@@ -26,8 +34,10 @@
 .vaciar {
     margin-left: 20px;
     background-color: rgb(172, 152, 126);
-    border: solid 2px rgb(146, 128, 104);
-    border-radius: 2px;
+    border: none;
+    border-radius: 3px;
+    padding: 3px 20px;
+    cursor: pointer;
 }
 
 .finalizar-compra {
@@ -35,4 +45,10 @@
     align-items: center;
     justify-content: space-between;
     margin: 0 20px;
+}
+
+.finalizar {
+    padding: 5px 15px;
+    background-color: rgb(102, 145, 100);
+    border-radius: 3px;
 }

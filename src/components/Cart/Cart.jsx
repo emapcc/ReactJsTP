@@ -34,7 +34,7 @@ const Cart = () => {
         <button className='vaciar' onClick={clearCart}>Vaciar carrito</button>
         <div className='finalizar-compra'>
           <h4>Precio Total: ${precioTotal()}</h4>
-          <button><Link to="/checkout" >Finalizar compra</Link></button>
+          <Link className='finalizar' to="/checkout" >Finalizar compra</Link>
         </div>
       </>
     )
