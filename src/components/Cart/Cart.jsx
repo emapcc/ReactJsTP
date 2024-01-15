@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './Cart.css'
 
 const Cart = () => {
-    const {cart, precioTotal, removeItem, clearCart} = useContext(CartContext)
+    const {cart, precioTotal, removeItem, clearCart, decrementItem, incrementItem} = useContext(CartContext)
 
   if(cart.length === 0){
     return (
@@ -24,7 +24,11 @@ const Cart = () => {
             {cart.map((prod) => (
                 <li key={prod.id}>
                   <p>{prod.titulo}</p>
-                  <p>{prod.quantity}</p>
+                  <div>
+                    <button onClick={() => decrementItem(prod.id)}>-</button>
+                    <p>{prod.quantity}</p>
+                    <button onClick={() => incrementItem(prod.id)}>+</button>
+                  </div>
                   <p>{prod.precio}</p>
                   <p>{prod.quantity * prod.precio}</p>
                   <button onClick={() => removeItem(prod.id)}>Eliminar</button>

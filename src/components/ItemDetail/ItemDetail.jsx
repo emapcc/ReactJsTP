@@ -3,6 +3,7 @@ import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import CartContext from '../../context/CartContext'
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom'
 
 const ItemDetail = ({id, titulo, autor, anio, precio, img, stock}) => {
   const [quantity, setQuantity] = useState(0)
@@ -11,7 +12,7 @@ const ItemDetail = ({id, titulo, autor, anio, precio, img, stock}) => {
   const onAdd = (quantity) => {
     setQuantity(quantity)
     const newProd = {
-      id, titulo, precio
+      id, titulo, precio, stock
     }
     addItem(newProd, quantity)
     const Toast = Swal.mixin({
@@ -37,13 +38,14 @@ const ItemDetail = ({id, titulo, autor, anio, precio, img, stock}) => {
       <div>
         <img src={img} alt={titulo} />
         <p className='precio'>Precio: ${precio}</p>
-        <ItemCount inicial={1} stock={stock} onAdd={onAdd}/>
+        {quantity > 0 ? <Link to='/carrito'>Ir al carrito</Link>:
+        <ItemCount inicial={1} stock={stock} onAdd={onAdd}/>}
       </div>
       <div>
         <h3>{titulo}</h3>
         <h4>Autor: {autor}</h4>
         <p>Año de publicación: {anio}</p>
-        <p>Detalle: -</p>
+        <p>Stock: {stock}</p>
       </div>
     </div>
   )

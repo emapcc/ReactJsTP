@@ -17,6 +17,14 @@
     margin-top: 15px;
 }
 
+.mas-info div a {
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    padding: 5px 0;
+}
+
 .precio {
     margin-top: 0;
     margin-bottom: 20px;

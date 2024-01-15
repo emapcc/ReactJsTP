@@ -21,13 +21,13 @@ Firebase
 
 ## Instalación
 * Clonar el repositorio: 
-    git clone https://github.com/emapcc/ReactJsTP
+    * git clone https://github.com/emapcc/ReactJsTP
 * Moverse a la carpeta raíz:
-    cd ReactJsTp
+    * cd ReactJsTp
 * Instalar dependencias:
-    npm install
+    * npm install
 * Compilar:
-    npm run dev
+    * npm run dev
 * Link del local host: http://localhost:5173
 
 ## Estructura del proyecto

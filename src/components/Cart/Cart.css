@@ -19,6 +19,11 @@ button {
     border-bottom: 1px black solid;
 }
 
+.cart-list li div {
+    display: flex;
+    align-items: center;
+}
+
 .cart-list li button {
     border: none;
     background-color: rgb(229, 209, 182);

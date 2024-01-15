@@ -23,93 +23,37 @@ const Checkout = () => {
         }))
     }
 
+    const mostrarToast = (icon, title) => {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-start',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        
+        Toast.fire({
+            icon: icon,
+            title: title
+        })
+    }
+
     const getOrder = (event) => {
         event.preventDefault();
         if((user.email.length === 0) || (user.repetirEmail.length === 0)){
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'bottom-start',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-            
-            Toast.fire({
-                icon: 'error',
-                title: 'Ingrese el mail'
-            })
+            mostrarToast('error', 'Ingrese el mail');
         } else if(user.nombre.length <= 2){
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'bottom-start',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-            
-            Toast.fire({
-                icon: 'error',
-                title: 'Ingrese un nombre válido'
-            })
+            mostrarToast('error', 'Ingrese un nombre válido')
         } else if(!emailMatch){
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'bottom-start',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-            
-            Toast.fire({
-                icon: 'error',
-                title: 'Los mails no coinciden'
-            })
-        } else if(cart.length === 0){
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'bottom-start',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-            
-            Toast.fire({
-                icon: 'warning',
-                title: 'Debes agregar productos al carrito'
-            })
+            mostrarToast('error', 'Los mails no coinciden')
         } else if(!validNumber){
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'bottom-start',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-            
-            Toast.fire({
-                icon: 'error',
-                title: 'Número de teléfono inválido'
-            })
+            mostrarToast('error', 'Número de teléfono inválido')
+        } else if(cart.length === 0){
+            mostrarToast('warning', 'Debes agregar productos al carrito')
         } else {
             const order = {
                 buyer: user,

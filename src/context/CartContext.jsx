@@ -51,8 +51,30 @@ export const CartProvider = ({children}) => {
       return quantity
     }
 
+    const decrementItem = (itemId) => {
+      const updateCart = cart.map((libr) => {
+        if(libr.id === itemId){
+          const newQuantity = Math.max(libr.quantity - 1, 1)
+          return {...libr, quantity: newQuantity}
+        }
+        return libr
+      })
+      setCart(updateCart)
+    }
+
+    const incrementItem = (itemId) => {
+      const updateCart = cart.map((libr) => {
+        if(libr.id === itemId){
+          const newQuantity = Math.min(libr.quantity + 1, libr.stock)
+          return {...libr, quantity: newQuantity}
+        }
+        return libr
+      })
+      setCart(updateCart)
+    }
+
   return (
-    <CartContext.Provider value={{cart, setCart, addItem, precioTotal, removeItem, clearCart, cartQuantity}}>
+    <CartContext.Provider value={{cart, setCart, addItem, precioTotal, removeItem, clearCart, cartQuantity, decrementItem, incrementItem}}>
       {children}
     </CartContext.Provider>
   )
