@@ -1,8 +1,14 @@
 .productos-grid-container {
     margin: 0 15px;
-    display: grid;
-    grid-template-columns: repeat(4, 1.4fr);
-    column-gap: 15px;
-    row-gap: 25px;
     justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 481px){
+    .productos-grid-container {
+        grid-template-columns: repeat(2, 1.2fr);
+        column-gap: 10px;
+        margin: 0 5px;
+    }
 }

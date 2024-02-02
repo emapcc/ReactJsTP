@@ -1,14 +1,15 @@
 article {
     background-color: rgb(195, 172, 145);
     border-radius: 20px;
-    width: 240px;
-    height: 470px;
+    width: 20rem;
+    height: 30rem;
     box-shadow: 6px 7px 6px 1px rgba(0, 0, 0, 0.2);
+    margin: 10px;
 }
 
 article img {
-    height: 270px;
-    margin: 15px 0 0 30px;
+    height: 290px;
+    margin: 15px 0 0 60px;
 }
 
 article a {
@@ -18,7 +19,7 @@ article a {
     border-radius: 5px;
     text-decoration: none;
     color: black;
-    margin-left: 76px;
+    margin-left: 115px;
     display: inline-flex;
 }
 
@@ -33,4 +34,21 @@ article h3 {
 
 article p {
     margin-left: 10px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 481px) {
+    article {
+        font-size: small;
+        width: 200px;
+        height: 26rem;
+    }
+
+    article img {
+        margin: 10px 0 0 12px;
+        height: 240px;
+    }
+
+    article a {
+        margin-left: 70px;
+    }
 }

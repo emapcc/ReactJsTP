@@ -13,7 +13,7 @@ button {
 
 .cart-list li {
     display: grid;
-    grid-template-columns: repeat(5, 181px);
+    grid-template-columns: repeat(5, 1.5fr);
     align-items: center;
     column-gap: 20px;
     border-bottom: 1px black solid;
@@ -24,10 +24,14 @@ button {
     align-items: center;
 }
 
+.cart-list li div p {
+    margin: 0 15px;
+}
+
 .cart-list li button {
     border: none;
     background-color: rgb(229, 209, 182);
-    padding: 3px;
+    padding: 3px 12px;
     border-radius: 5px;
     cursor: pointer;
 }
