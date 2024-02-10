@@ -29,13 +29,22 @@ a:hover {
     color: rgb(67, 67, 67);
 }
 
-@media only screen and (min-width: 320px) and (max-width: 481px) {
+@media only screen and (min-width: 460px) and (max-width: 481px) {
     .navbar {
-        width: 30rem;
         font-size: small;
     }
 
     .logo {
         height: 40px;
+    }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 459px){
+    .navbar {
+        font-size: x-small;
+    }
+
+    .logo {
+        height: 35px;
     }
 }

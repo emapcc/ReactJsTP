@@ -4,7 +4,7 @@ article {
     width: 20rem;
     height: 30rem;
     box-shadow: 6px 7px 6px 1px rgba(0, 0, 0, 0.2);
-    margin: 10px;
+    margin: 10px 0;
 }
 
 article img {
@@ -49,23 +49,23 @@ article p {
     }
 
     article a {
-        margin-left: 70px;
+        margin-left: 57px;
     }
 }
 
-@media only screen and (min-width: 400px) and (max-width: 459px){
+@media only screen and (min-width: 350px) and (max-width: 459px){
     article {
-        font-size: small;
-        width: 205px;
-        height: 24rem;
+        font-size: x-small;
+        width: 170px;
+        height: 22rem;
     }
 
     article img {
         margin: 10px 0 0 12px;
-        height: 213px;
+        height: 210px;
     }
 
     article a {
-        margin-left: 70px;
+        margin-left: 48px;
     }
 }
